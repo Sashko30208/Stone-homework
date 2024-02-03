@@ -9,7 +9,7 @@
         public DateTime CreateDate { get; set; }
         public DateTime CloseDate { get; set; }
         public string VacancyLink { get; set; }
-        public string Department { get; set; }//пока просто текстовым полем, но, по хорошему, нужна отдельная сущность.
+        public Department Department { get; set; }
         public List<WorkerTag> Tags { get; set; }//по этим тегам можно делать предварительную выборку наиболее
                                                  //подходящих кандидатов из базы и искать похожие существующие вакансии.
         internal Employee ResponsiblePerson { get; set; }
