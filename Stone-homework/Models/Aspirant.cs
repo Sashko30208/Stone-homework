@@ -18,7 +18,7 @@
         DateTime RequestDate { get; set; }
         string AdditionalInfo { get; set; }//поле для заметок при приеме.
                                            //При трудоустройстве при необходимости можно перенести в структурированное поле с тегами.
-
+        public List<HireStage> hireStages { get; set; }//назначенные и пройденные этапы трудоустройства
     }
 
     internal class Employee : Worker
