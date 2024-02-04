@@ -19,6 +19,8 @@ namespace Stone_homework.Storage
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<HireStage>().HasOne(s => s.StageType);
+            modelBuilder.Entity<Vacancy>().HasOne(v => v.Department);
+            modelBuilder.Entity<Vacancy>().HasOne(v => v.ResponsiblePerson);
         }
     }
 }

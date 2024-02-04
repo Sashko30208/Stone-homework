@@ -1,8 +1,7 @@
 ﻿namespace Stone_homework.Models
 {
-    public class WorkerTag
+    public class WorkerTag : BaseEntity<int>
     {
-        public int TagID { get; set; }
         public string Description { get; set; }
         public string TagGroup { get; set; } //туду отдельная сущность с ценностью (софт скиллс, знание технологий, особенности взаимодействия (часовой пояс, м.б. инвалидность..) и тд)
         public byte TagValue { get; set; }//Важность указанного умения, способности.

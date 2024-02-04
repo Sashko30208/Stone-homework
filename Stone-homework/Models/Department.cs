@@ -1,8 +1,7 @@
 ﻿namespace Stone_homework.Models
 {
-    public class Department
+    public class Department : BaseEntity<int>
     {
-        public int ID { get; set; }
         public string Name { get; set; }
     }
 }

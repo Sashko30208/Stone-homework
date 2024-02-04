@@ -1,14 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Stone_homework.Models
 {
     [Table("HireStages")]
     [Serializable]
-    public class HireStage
+    public class HireStage : BaseEntity<int>
     {
-        [Key]
-        public int ID { get; set; }
         public byte StageNumber { get; set; }
         public string Name { get; set; }
         public string? Description { get; set; }

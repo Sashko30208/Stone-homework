@@ -4,9 +4,10 @@ namespace Stone_homework.Storage.Implementation
 {
     public class DepartmentRepository : IDepartmentRepository
     {
-        //private readonly VacancyContext _context;
+        private readonly ApplicationDbContext _context;
 
-        //public Department(VacancyContext context) => _context = context;
+        public DepartmentRepository(ApplicationDbContext context)
+            => _context = context;
 
         public void Add(Department department)
         => throw new NotImplementedException();
@@ -15,8 +16,7 @@ namespace Stone_homework.Storage.Implementation
         => throw new NotImplementedException();
 
         public Department GetById(int id)
-            //=> context.Departments.FirstOrDefault(d => d.ID == id);
-        => throw new NotImplementedException();
+        => _context.Departments.FirstOrDefault(d => d.ID == id);
 
         public Department GetByName(string name)
         //=> context.Departments.FirstOrDefault(d => d.Name == name);

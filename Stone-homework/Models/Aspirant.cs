@@ -1,8 +1,7 @@
 ﻿namespace Stone_homework.Models
 {
-    public abstract class Worker
+    public abstract class Worker : BaseEntity<Guid>
     {
-        public Guid WorkerID { get; set; }
         public string Name { get; set; }
         public string? Surname { get; set; }
         public string Patronymic { get; set; }
