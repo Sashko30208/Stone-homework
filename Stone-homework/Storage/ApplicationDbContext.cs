@@ -15,12 +15,20 @@ namespace Stone_homework.Storage
         public DbSet<WorkerStatus> WorkerStatuses { get; set; }
         public DbSet<WorkerTag> WorkerTags { get; set; }
 
+        public DbSet<Worker> Workers { get; set; }
+        public DbSet<Aspirant> Aspirants { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<ReservedWorker> ReservedWorkers { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<HireStage>().HasOne(s => s.StageType);
+         
             modelBuilder.Entity<Vacancy>().HasOne(v => v.Department);
             modelBuilder.Entity<Vacancy>().HasOne(v => v.ResponsiblePerson);
+
+            modelBuilder.Entity<Worker>().HasOne(e => e.Department).WithMany(d=>d.Workers).OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
