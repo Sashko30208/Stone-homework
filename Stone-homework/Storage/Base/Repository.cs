@@ -16,7 +16,7 @@ namespace Stone_homework.Storage.Base
         public Repository(TDbContext context)
             => _context = context;
 
-        public virtual async Task<T> Add(T item)
+        public async Task<T> Add(T item)
         {
             try
             {

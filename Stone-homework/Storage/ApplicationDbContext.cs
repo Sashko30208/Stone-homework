@@ -5,6 +5,9 @@ namespace Stone_homework.Storage
 {
     public class ApplicationDbContext : DbContext
     {
+        public ApplicationDbContext()
+        { }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         { }
 
@@ -24,11 +27,14 @@ namespace Stone_homework.Storage
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<HireStage>().HasOne(s => s.StageType);
-         
+
             modelBuilder.Entity<Vacancy>().HasOne(v => v.Department);
             modelBuilder.Entity<Vacancy>().HasOne(v => v.ResponsiblePerson);
 
-            modelBuilder.Entity<Worker>().HasOne(e => e.Department).WithMany(d=>d.Workers).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Worker>().HasOne(e => e.Department).WithMany(d => d.Workers).OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Worker>().HasOne(w => w.Status);
+            modelBuilder.Entity<Worker>().HasMany(w => w.Tags);
+            modelBuilder.Entity<Aspirant>().HasMany(w => w.HireStages);
         }
     }
 }

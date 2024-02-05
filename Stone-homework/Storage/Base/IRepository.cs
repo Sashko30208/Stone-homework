@@ -4,11 +4,11 @@ namespace Stone_homework.Storage.Base
 {
     public interface IRepository<TKey, T> where T : BaseEntity<TKey>
     {
-        public Task<T> Add(T item);
-        public Task<T> Update(T item);
-        public Task<bool> Delete(T item);
-        public Task<IEnumerable<T>> GetAll();
-        public Task<T> Get(TKey id);
-        public Task<T> Get(T item);
+        Task<T> Add(T item);
+        Task<T> Update(T item);
+        Task<bool> Delete(T item);
+        Task<IEnumerable<T>> GetAll();
+        Task<T> Get(TKey id);
+        Task<T> Get(T item);
     }
 }
